@@ -1,0 +1,32 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="ruleGoogleTranslate" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+	<rule id="ruleGoogleTranslate" scope="public">
+		<example>Jarvis peux tu traduire bonjour en anglais</example>
+		<tag>out.action=new Object(); </tag>
+
+		<item>Jarvis</item>
+		
+		<one-of>
+			<item>traduit</item>
+			<item>traduis</item>
+			<item>traduire</item>
+			<item>tu peux traduire</item>
+			<item>peux tu me traduire</item>
+		</one-of>
+
+		<ruleref special="GARBAGE" />
+
+		<one-of>
+			<item>en anglais<tag>out.action.lang='en';</tag></item>
+			<item>en espagnol<tag>out.action.lang='es';</tag></item>
+			<item>en allemand<tag>out.action.lang='de';</tag></item>
+			<item>en chinois<tag>out.action.lang='zh-CN';</tag></item>
+			<item>en latin<tag>out.action.lang='la';</tag></item>
+			<item>en russe<tag>out.action.lang='ru';</tag></item>
+			<item>en roumain<tag>out.action.lang='ro';</tag></item>
+			<item>en français<tag>out.action.lang='fr';</tag></item>
+			<item>en francais<tag>out.action.lang='fr';</tag></item>
+		</one-of>
+
+		<tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/GoogleTranslate";</tag>
+	</rule>
+</grammar>
