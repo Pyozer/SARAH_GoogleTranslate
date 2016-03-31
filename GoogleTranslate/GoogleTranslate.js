@@ -38,7 +38,7 @@ function checkSpeechReco(SARAH, callback, data) {
 		search = match[2];
 		clearInterval(token);
 		console.log("Cnt: " + cnt);
-		return getTraduction(search, callback, data.lang);
+		return getTraduction(search, callback, data.lang, data.langue);
 	} else {
 		cnt += interval;
 		if (cnt > (interval * repeat)) {
@@ -49,39 +49,9 @@ function checkSpeechReco(SARAH, callback, data) {
 	}
 }
 
-var getTraduction = function(search, callback, lang) {
+var getTraduction = function(search, callback, lang, language) {
 	search = search.trim();
 	search = search.toLowerCase();
-
-	switch(lang) {
-		case 'en':
-			var language = "Anglais";
-		break;
-		case 'es':
-			var language = "Espagnol";
-		break;
-		case 'de':
-			var language = "Allemand";
-		break;
-		case 'zh-CN':
-			var language = "Chinois";
-		break;
-		case 'la':
-			var language = "Latin";
-		break;
-		case 'ru':
-			var language = "Russe";
-		break;
-		case 'ro':
-			var language = "Roumain";
-		break;
-		case 'fr':
-			var language = "Français";
-		break;
-		default:
-			var language = "Français";
-		break;
-	}
 
 	var nomcherchercomplet = 'https://translate.google.com/?q=' + search + '&sl=auto&tl=' + lang + '#auto/' + lang + '/' + search;
 
