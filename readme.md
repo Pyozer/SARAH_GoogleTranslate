@@ -1,6 +1,8 @@
 ﻿Plugin Traduction pour S.A.R.A.H
 ================================
 
+Plugin pour avoir la traduction d'un mot ou d'une phrase dans la langue au choix.
+
 Le plugin nécessite tout d'abord Scribe .
 
 Que vous pouvez trouver ici: https://github.com/tilleul/Sarah.Scribe
