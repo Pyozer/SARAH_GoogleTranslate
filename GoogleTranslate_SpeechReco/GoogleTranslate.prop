@@ -1,0 +1,9 @@
+{
+	"modules": { 
+		"GoogleTranslate": {
+			"description": "Traduit un mot dans une langue au choix",
+			"version": "1.0",
+			"auteur": "Jean-Charles Moussé"
+		}
+	}
+}
