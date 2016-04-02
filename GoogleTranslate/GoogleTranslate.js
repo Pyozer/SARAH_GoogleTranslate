@@ -81,7 +81,12 @@ var getTraduction = function(search, callback, lang, language) {
 	var request = require('request');
 	var cheerio = require('cheerio');
 
-    request({ 'uri': url, 'headers': { 'Accept-Charset': 'utf-8' }, 'encoding': 'binary' }, function(error, response, html) {
+	var options = {
+		'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36',
+		'Accept-Charset': 'utf-8'
+	};
+
+    request({ 'uri': url, 'headers': options, 'encoding': 'binary' }, function(error, response, html) {
 
         var $ = cheerio.load(html, { xmlMode: false, ignoreWhitespace: false, lowerCaseTags: false });
 
