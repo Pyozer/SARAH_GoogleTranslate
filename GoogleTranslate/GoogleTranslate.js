@@ -47,8 +47,8 @@ function checkScribe(event, action, callback, data) {
 			decodeScribe(SARAH.context.scribe.lastPartial, callback, data);
 		} else {
 			SARAH.context.scribe.activePlugin('Aucun (GoogleTranslate)');
-			ScribeSpeak("Désolé je n'ai pas compris. Merci de réessayer.", true);
-			return callback();
+			//ScribeSpeak("Désolé je n'ai pas compris. Merci de réessayer.", true);
+			return callback({ 'tts': "Désolé je n'ai pas compris. Merci de réessayer." });
 		}
 		
 	} else {
@@ -65,8 +65,8 @@ function decodeScribe(search, callback, data) {
 	var match = search.trim().match(rgxp);
 	if (!match || match.length <= 1){
 		SARAH.context.scribe.activePlugin('Aucun (GoogleTranslate)');
-		ScribeSpeak("Désolé je n'ai pas compris.", true);
-		return callback();
+		//ScribeSpeak("Désolé je n'ai pas compris.", true);
+		return callback({ 'tts': "Désolé je n'ai pas compris." });
 	}
 	// on peut maintenant s'occuper du/des mots qui sont recherchés
 	search = match[2];
@@ -94,13 +94,13 @@ var getTraduction = function(search, callback, lang, language) {
 
         if(resultat == "") {
         	console.log("Impossible de récupérer les informations sur Google Translate");
-        	ScribeSpeak("Désolé, je n'ai pas réussi à récupérer d'informations");
-			callback();
+        	//ScribeSpeak("Désolé, je n'ai pas réussi à récupérer d'informations");
+			callback({ 'tts': "Désolé, je n'ai pas réussi à récupérer d'informations" });
         } else {
 			console.log('=[ Traduction de ' + search + ' en ' + language + ' ]=');
 	        console.log('Résultat: ' + resultat);
-	        ScribeSpeak(search + " en " + language + " se dit " + resultat);
-	        callback();
+	        //ScribeSpeak(search + " en " + language + " se dit " + resultat);
+	        callback({ 'tts': search + " en " + language + " se dit " + resultat });
         }
         return;
     });
